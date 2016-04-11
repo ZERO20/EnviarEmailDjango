@@ -1,0 +1,5 @@
+Hola {{ usuario }}
+Esta pasando algo divertido.
+Has comprado: {{ compra }}
+
+¡Gracias!

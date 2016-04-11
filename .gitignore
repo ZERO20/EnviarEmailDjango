@@ -1,0 +1,11 @@
+*.pyo
+*.pyc
+correo/settings.py
+correo/wsgi.py
+media
+media/*
+.idea
+.idea/*
+.idea/workspace.xml
+correo/static/*
+*.xml
