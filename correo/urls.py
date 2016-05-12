@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from email_app.views import index
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^enviar1/$','email_app.views.enviar_uno'),
-    url(r'^enviar2/$','email_app.views.enviar_dos'),
+    url(r'^$', index.as_view(), name='index'),
+    url(r'^enviar1/$','email_app.views.enviar_uno',name='enviar1'),
+    url(r'^enviar2/$','email_app.views.enviar_dos',name='enviar2'),
 ]
 

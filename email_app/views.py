@@ -6,6 +6,8 @@ from django.template import Context
 from django.template.loader import render_to_string,get_template
 from django.core.mail import EmailMessage
 from django.conf import settings
+from django.views.generic import TemplateView
+
 
 def enviar_uno(request):
 	asunto = 'Soy un email txt'
@@ -22,7 +24,7 @@ def enviar_uno(request):
 	#cojerá la constante definida en el settings.py de DEFAULT_FROM_EMAIL,
 	#de esta forma se puede ahorrar configurar el remitente por defecto.
 	EmailMessage(asunto,message,to=para,from_email=de).send()
-	return HttpResponse('enviar_uno_txt')
+	return HttpResponse('enviar_uno_txt <br> <a href="/">Regresar</a>')
 
 def enviar_dos(request):
 	asunto = 'Soy un correo html'
@@ -38,4 +40,7 @@ def enviar_dos(request):
 	msg = EmailMessage(asunto,message,to=para,from_email=de,reply_to=['otro@ejemplo.com'])
 	msg.content_subtype = 'html'
 	msg.send()
-	return HttpResponse('email_dos_html')
+	return HttpResponse('email_dos_html <br> <a href="/">Regresar</a>')
+
+class index(TemplateView):
+	template_name = 'index.html'
